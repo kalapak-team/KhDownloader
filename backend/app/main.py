@@ -9,7 +9,7 @@ from fastapi.responses import JSONResponse
 from app.config import settings
 from app.database import Base, engine
 from app.models import Download, User  # noqa: F401
-from app.routers import admin_router, auth_router, download_router, history_router, info_router, jpg2pdf_router, mergepdf_router, pdf2jpg_router, profile_router
+from app.routers import admin_router, auth_router, docx2pdf_router, download_router, excel2pdf_router, history_router, info_router, jpg2pdf_router, mergepdf_router, pdf2docx_router, pdf2excel_router, pdf2jpg_router, pdf2pptx_router, pptx2pdf_router, profile_router
 from app.utils.file_utils import ensure_download_dir
 
 redis_client = redis.Redis.from_url(settings.redis_url, decode_responses=True)
@@ -74,4 +74,10 @@ app.include_router(admin_router)
 app.include_router(pdf2jpg_router)
 app.include_router(jpg2pdf_router)
 app.include_router(mergepdf_router)
+app.include_router(pdf2docx_router)
+app.include_router(docx2pdf_router)
+app.include_router(pdf2pptx_router)
+app.include_router(pptx2pdf_router)
+app.include_router(pdf2excel_router)
+app.include_router(excel2pdf_router)
 app.include_router(profile_router)

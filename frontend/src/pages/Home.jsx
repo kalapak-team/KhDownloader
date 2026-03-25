@@ -1,4 +1,4 @@
-import { CloudDownload, FileImage, FilePlus2, FileText } from "lucide-react";
+import { CloudDownload, FileImage, FileInput, FileOutput, FilePlus2, FileSpreadsheet, FileText, Presentation } from "lucide-react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
@@ -178,6 +178,90 @@ export default function Home() {
             <p className="text-sm font-semibold text-textPrimary">Merge PDF</p>
             <p className="mt-0.5 text-xs text-textSecondary">
               Combine PDFs in the order you want with the easiest PDF merger available.
+            </p>
+          </div>
+        </Link>
+        <Link
+          to="/pdf-to-word"
+          className="flex items-center gap-4 rounded-2xl border border-[rgba(255,255,255,0.07)] bg-[rgba(255,255,255,0.03)] p-5 no-underline backdrop-blur-md transition-all duration-200 hover:border-[rgba(232,71,42,0.4)] hover:bg-[rgba(232,71,42,0.06)]"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgba(232,71,42,0.12)] text-[#e8472a]">
+            <FileOutput size={20} />
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-textPrimary">PDF → Word</p>
+            <p className="mt-0.5 text-xs text-textSecondary">
+              Convert your PDF to WORD documents with incredible accuracy.
+            </p>
+          </div>
+        </Link>
+        <Link
+          to="/word-to-pdf"
+          className="flex items-center gap-4 rounded-2xl border border-[rgba(255,255,255,0.07)] bg-[rgba(255,255,255,0.03)] p-5 no-underline backdrop-blur-md transition-all duration-200 hover:border-[rgba(232,71,42,0.4)] hover:bg-[rgba(232,71,42,0.06)]"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgba(232,71,42,0.12)] text-[#e8472a]">
+            <FileInput size={20} />
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-textPrimary">Word → PDF</p>
+            <p className="mt-0.5 text-xs text-textSecondary">
+              Make DOC and DOCX files easy to read by converting them to PDF.
+            </p>
+          </div>
+        </Link>
+        <Link
+          to="/pdf-to-pptx"
+          className="flex items-center gap-4 rounded-2xl border border-[rgba(255,255,255,0.07)] bg-[rgba(255,255,255,0.03)] p-5 no-underline backdrop-blur-md transition-all duration-200 hover:border-[rgba(232,71,42,0.4)] hover:bg-[rgba(232,71,42,0.06)]"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgba(232,71,42,0.12)] text-[#e8472a]">
+            <Presentation size={20} />
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-textPrimary">PDF → PowerPoint</p>
+            <p className="mt-0.5 text-xs text-textSecondary">
+              Convert your PDFs to POWERPOINT slides instantly.
+            </p>
+          </div>
+        </Link>
+        <Link
+          to="/pptx-to-pdf"
+          className="flex items-center gap-4 rounded-2xl border border-[rgba(255,255,255,0.07)] bg-[rgba(255,255,255,0.03)] p-5 no-underline backdrop-blur-md transition-all duration-200 hover:border-[rgba(232,71,42,0.4)] hover:bg-[rgba(232,71,42,0.06)]"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgba(232,71,42,0.12)] text-[#e8472a]">
+            <Presentation size={20} />
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-textPrimary">PowerPoint → PDF</p>
+            <p className="mt-0.5 text-xs text-textSecondary">
+              Make PPT and PPTX slideshows easy to view by converting them to PDF.
+            </p>
+          </div>
+        </Link>
+        <Link
+          to="/pdf-to-excel"
+          className="flex items-center gap-4 rounded-2xl border border-[rgba(255,255,255,0.07)] bg-[rgba(255,255,255,0.03)] p-5 no-underline backdrop-blur-md transition-all duration-200 hover:border-[rgba(232,71,42,0.4)] hover:bg-[rgba(232,71,42,0.06)]"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgba(232,71,42,0.12)] text-[#e8472a]">
+            <FileSpreadsheet size={20} />
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-textPrimary">PDF → Excel</p>
+            <p className="mt-0.5 text-xs text-textSecondary">
+              Convert PDF data to Excel spreadsheets.
+            </p>
+          </div>
+        </Link>
+        <Link
+          to="/excel-to-pdf"
+          className="flex items-center gap-4 rounded-2xl border border-[rgba(255,255,255,0.07)] bg-[rgba(255,255,255,0.03)] p-5 no-underline backdrop-blur-md transition-all duration-200 hover:border-[rgba(232,71,42,0.4)] hover:bg-[rgba(232,71,42,0.06)]"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgba(232,71,42,0.12)] text-[#e8472a]">
+            <FileSpreadsheet size={20} />
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-textPrimary">Excel → PDF</p>
+            <p className="mt-0.5 text-xs text-textSecondary">
+              Make Excel spreadsheets easy to read by converting them to PDF.
             </p>
           </div>
         </Link>

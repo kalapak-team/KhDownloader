@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Download, FileImage, FilePlus2, FileText, History, LogOut, Shield, UserRound, X } from "lucide-react";
+import { ChevronDown, Download, FileImage, FileInput, FileOutput, FilePlus2, FileSpreadsheet, FileText, History, LogOut, Presentation, Shield, UserRound, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 import { useAuthStore } from "../store/authStore";
@@ -12,7 +12,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pdfMenuRef = useRef(null);
   const location = useLocation();
-  const isPdfActive = location.pathname === "/pdf-to-jpg" || location.pathname === "/jpg-to-pdf" || location.pathname === "/merge-pdf";
+  const isPdfActive = location.pathname === "/pdf-to-jpg" || location.pathname === "/jpg-to-pdf" || location.pathname === "/merge-pdf" || location.pathname === "/pdf-to-word" || location.pathname === "/word-to-pdf" || location.pathname === "/pdf-to-pptx" || location.pathname === "/pptx-to-pdf" || location.pathname === "/pdf-to-excel" || location.pathname === "/excel-to-pdf";
 
   useEffect(() => {
     setMenuOpen(false);
@@ -142,6 +142,96 @@ export default function Navbar() {
                 >
                   <FilePlus2 size={15} />
                   Merge PDF
+                </NavLink>
+                <div className="mx-3 h-px bg-[rgba(255,255,255,0.06)]" />
+                <NavLink
+                  to="/pdf-to-word"
+                  onClick={() => setPdfOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2.5 px-4 py-3 text-sm no-underline transition-colors duration-150 ${
+                      isActive
+                        ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]"
+                        : "text-textSecondary hover:bg-[rgba(232,71,42,0.07)] hover:text-textPrimary"
+                    }`
+                  }
+                >
+                  <FileOutput size={15} />
+                  PDF → Word
+                </NavLink>
+                <div className="mx-3 h-px bg-[rgba(255,255,255,0.06)]" />
+                <NavLink
+                  to="/word-to-pdf"
+                  onClick={() => setPdfOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2.5 px-4 py-3 text-sm no-underline transition-colors duration-150 ${
+                      isActive
+                        ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]"
+                        : "text-textSecondary hover:bg-[rgba(232,71,42,0.07)] hover:text-textPrimary"
+                    }`
+                  }
+                >
+                  <FileInput size={15} />
+                  Word → PDF
+                </NavLink>
+                <div className="mx-3 h-px bg-[rgba(255,255,255,0.06)]" />
+                <NavLink
+                  to="/pdf-to-pptx"
+                  onClick={() => setPdfOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2.5 px-4 py-3 text-sm no-underline transition-colors duration-150 ${
+                      isActive
+                        ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]"
+                        : "text-textSecondary hover:bg-[rgba(232,71,42,0.07)] hover:text-textPrimary"
+                    }`
+                  }
+                >
+                  <Presentation size={15} />
+                  PDF → PPTX
+                </NavLink>
+                <div className="mx-3 h-px bg-[rgba(255,255,255,0.06)]" />
+                <NavLink
+                  to="/pptx-to-pdf"
+                  onClick={() => setPdfOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2.5 px-4 py-3 text-sm no-underline transition-colors duration-150 ${
+                      isActive
+                        ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]"
+                        : "text-textSecondary hover:bg-[rgba(232,71,42,0.07)] hover:text-textPrimary"
+                    }`
+                  }
+                >
+                  <Presentation size={15} />
+                  PPTX → PDF
+                </NavLink>
+                <div className="mx-3 h-px bg-[rgba(255,255,255,0.06)]" />
+                <NavLink
+                  to="/pdf-to-excel"
+                  onClick={() => setPdfOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2.5 px-4 py-3 text-sm no-underline transition-colors duration-150 ${
+                      isActive
+                        ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]"
+                        : "text-textSecondary hover:bg-[rgba(232,71,42,0.07)] hover:text-textPrimary"
+                    }`
+                  }
+                >
+                  <FileSpreadsheet size={15} />
+                  PDF → Excel
+                </NavLink>
+                <div className="mx-3 h-px bg-[rgba(255,255,255,0.06)]" />
+                <NavLink
+                  to="/excel-to-pdf"
+                  onClick={() => setPdfOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2.5 px-4 py-3 text-sm no-underline transition-colors duration-150 ${
+                      isActive
+                        ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]"
+                        : "text-textSecondary hover:bg-[rgba(232,71,42,0.07)] hover:text-textPrimary"
+                    }`
+                  }
+                >
+                  <FileSpreadsheet size={15} />
+                  Excel → PDF
                 </NavLink>
               </div>
             )}
@@ -296,6 +386,60 @@ export default function Navbar() {
               >
                 <FilePlus2 size={15} />
                 Merge PDF
+              </NavLink>
+              <NavLink
+                to="/pdf-to-word"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm no-underline transition-colors ${isActive ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]" : "text-textSecondary hover:bg-[rgba(255,255,255,0.05)] hover:text-textPrimary"}`
+                }
+              >
+                <FileOutput size={15} />
+                PDF → Word
+              </NavLink>
+              <NavLink
+                to="/word-to-pdf"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm no-underline transition-colors ${isActive ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]" : "text-textSecondary hover:bg-[rgba(255,255,255,0.05)] hover:text-textPrimary"}`
+                }
+              >
+                <FileInput size={15} />
+                Word → PDF
+              </NavLink>
+              <NavLink
+                to="/pdf-to-pptx"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm no-underline transition-colors ${isActive ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]" : "text-textSecondary hover:bg-[rgba(255,255,255,0.05)] hover:text-textPrimary"}`
+                }
+              >
+                <Presentation size={15} />
+                PDF → PPTX
+              </NavLink>
+              <NavLink
+                to="/pptx-to-pdf"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm no-underline transition-colors ${isActive ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]" : "text-textSecondary hover:bg-[rgba(255,255,255,0.05)] hover:text-textPrimary"}`
+                }
+              >
+                <Presentation size={15} />
+                PPTX → PDF
+              </NavLink>
+              <NavLink
+                to="/pdf-to-excel"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm no-underline transition-colors ${isActive ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]" : "text-textSecondary hover:bg-[rgba(255,255,255,0.05)] hover:text-textPrimary"}`
+                }
+              >
+                <FileSpreadsheet size={15} />
+                PDF → Excel
+              </NavLink>
+              <NavLink
+                to="/excel-to-pdf"
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm no-underline transition-colors ${isActive ? "bg-[rgba(232,71,42,0.12)] text-[#e8472a]" : "text-textSecondary hover:bg-[rgba(255,255,255,0.05)] hover:text-textPrimary"}`
+                }
+              >
+                <FileSpreadsheet size={15} />
+                Excel → PDF
               </NavLink>
             </div>
 

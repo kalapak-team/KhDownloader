@@ -27,9 +27,9 @@ export default function History() {
   }, [loadHistory, page, filter, search]);
 
   return (
-    <div className="grid gap-5 py-10 pb-16">
+    <div className="grid gap-5 overflow-hidden py-10 pb-16">
       <section className="pb-2">
-        <h1 className="animate-fade-up text-[clamp(1.9rem,4.5vw,2.6rem)] font-extrabold tracking-tight">
+        <h1 className="animate-fade-up text-[clamp(1.5rem,4.5vw,2.6rem)] font-extrabold tracking-tight">
           Download History
         </h1>
         <p className="animate-fade-up-d1 mt-2 text-sm text-textSecondary">

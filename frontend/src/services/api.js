@@ -120,6 +120,126 @@ export const mergePdfs = async (files) => {
 	return res.json(); // { filename, data: "<base64 pdf>" }
 };
 
+// PDF to DOCX — POST returns DOCX as base64 inside JSON so IDM cannot intercept it
+export const convertPdfToDocx = async (file) => {
+	const form = new FormData();
+	form.append("file", file);
+	const token = localStorage.getItem(TOKEN_KEY);
+	const headers = {};
+	if (token) headers["Authorization"] = `Bearer ${token}`;
+	const res = await fetch(`${baseURL}/api/pdf2docx`, {
+		method: "POST",
+		headers,
+		body: form,
+	});
+	if (!res.ok) {
+		let detail = "Conversion failed";
+		try { const j = await res.json(); detail = j.detail || detail; } catch {}
+		throw new Error(detail);
+	}
+	return res.json(); // { filename, data: "<base64 docx>" }
+};
+
+// DOCX to PDF — POST returns PDF as base64 inside JSON so IDM cannot intercept it
+export const convertDocxToPdf = async (file) => {
+	const form = new FormData();
+	form.append("file", file);
+	const token = localStorage.getItem(TOKEN_KEY);
+	const headers = {};
+	if (token) headers["Authorization"] = `Bearer ${token}`;
+	const res = await fetch(`${baseURL}/api/docx2pdf`, {
+		method: "POST",
+		headers,
+		body: form,
+	});
+	if (!res.ok) {
+		let detail = "Conversion failed";
+		try { const j = await res.json(); detail = j.detail || detail; } catch {}
+		throw new Error(detail);
+	}
+	return res.json(); // { filename, data: "<base64 pdf>" }
+};
+
+// PDF to PPTX — POST returns PPTX as base64 inside JSON so IDM cannot intercept it
+export const convertPdfToPptx = async (file) => {
+	const form = new FormData();
+	form.append("file", file);
+	const token = localStorage.getItem(TOKEN_KEY);
+	const headers = {};
+	if (token) headers["Authorization"] = `Bearer ${token}`;
+	const res = await fetch(`${baseURL}/api/pdf2pptx`, {
+		method: "POST",
+		headers,
+		body: form,
+	});
+	if (!res.ok) {
+		let detail = "Conversion failed";
+		try { const j = await res.json(); detail = j.detail || detail; } catch {}
+		throw new Error(detail);
+	}
+	return res.json(); // { filename, data: "<base64 pptx>" }
+};
+
+// PDF to Excel — POST returns XLSX as base64 inside JSON so IDM cannot intercept it
+export const convertPdfToExcel = async (file) => {
+	const form = new FormData();
+	form.append("file", file);
+	const token = localStorage.getItem(TOKEN_KEY);
+	const headers = {};
+	if (token) headers["Authorization"] = `Bearer ${token}`;
+	const res = await fetch(`${baseURL}/api/pdf2excel`, {
+		method: "POST",
+		headers,
+		body: form,
+	});
+	if (!res.ok) {
+		let detail = "Conversion failed";
+		try { const j = await res.json(); detail = j.detail || detail; } catch {}
+		throw new Error(detail);
+	}
+	return res.json(); // { filename, data: "<base64 xlsx>" }
+};
+
+// Excel to PDF — POST returns PDF as base64 inside JSON so IDM cannot intercept it
+export const convertExcelToPdf = async (file) => {
+	const form = new FormData();
+	form.append("file", file);
+	const token = localStorage.getItem(TOKEN_KEY);
+	const headers = {};
+	if (token) headers["Authorization"] = `Bearer ${token}`;
+	const res = await fetch(`${baseURL}/api/excel2pdf`, {
+		method: "POST",
+		headers,
+		body: form,
+	});
+	if (!res.ok) {
+		let detail = "Conversion failed";
+		try { const j = await res.json(); detail = j.detail || detail; } catch {}
+		throw new Error(detail);
+	}
+	return res.json(); // { filename, data: "<base64 pdf>" }
+};
+
+// PPTX to PDF — POST returns PDF as base64 inside JSON so IDM cannot intercept it
+export const convertPptxToPdf = async (file) => {
+	const form = new FormData();
+	form.append("file", file);
+	const token = localStorage.getItem(TOKEN_KEY);
+	const headers = {};
+	if (token) headers["Authorization"] = `Bearer ${token}`;
+	const res = await fetch(`${baseURL}/api/pptx2pdf`, {
+		method: "POST",
+		headers,
+		body: form,
+	});
+	if (!res.ok) {
+		let detail = "Conversion failed";
+		try { const j = await res.json(); detail = j.detail || detail; } catch {}
+		throw new Error(detail);
+	}
+	return res.json(); // { filename, data: "<base64 pdf>" }
+};
+
 export { TOKEN_KEY };
 
 export default api;
